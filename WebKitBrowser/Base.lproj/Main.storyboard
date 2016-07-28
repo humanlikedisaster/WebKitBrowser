@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="avP-Ep-DnA">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Browser View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="BrowserViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWn-bP-gKv">
+                                <rect key="frame" x="0.0" y="53" width="0.0" height="2"/>
+                                <color key="backgroundColor" red="0.20708642410691525" green="0.50555621521986571" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" id="NGj-B6-Dla"/>
+                                    <constraint firstAttribute="height" constant="2" id="rW9-ox-7lW"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Enter URL here" textAlignment="natural" minimumFontSize="20" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="wiK-YQ-LyI">
+                                <rect key="frame" x="0.0" y="20" width="600" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="go"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="nJG-1H-L6u"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wiK-YQ-LyI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FR2-NQ-g6g"/>
+                            <constraint firstItem="BWn-bP-gKv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SaE-Fa-IO0"/>
+                            <constraint firstAttribute="trailing" secondItem="wiK-YQ-LyI" secondAttribute="trailing" id="WQ8-Hd-KoB"/>
+                            <constraint firstItem="wiK-YQ-LyI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fkB-Tt-4KJ"/>
+                            <constraint firstItem="BWn-bP-gKv" firstAttribute="top" secondItem="wiK-YQ-LyI" secondAttribute="bottom" constant="2" id="nbI-al-giu"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <toolbarItems>
+                        <barButtonItem title="Back" id="8d7-0U-dYB">
+                            <connections>
+                                <action selector="goBackButtonPressed:" destination="BYZ-38-t0r" id="AVm-YO-nWY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Forward" id="3i0-oi-at1">
+                            <connections>
+                                <action selector="goForwardButtonPressed:" destination="BYZ-38-t0r" id="zdN-md-0NY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="refresh" id="a5S-91-len">
+                            <connections>
+                                <action selector="reloadButtonPressed:" destination="BYZ-38-t0r" id="che-Pu-8W3"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="8mZ-J2-o45"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backButton" destination="8d7-0U-dYB" id="Ln4-yL-mZJ"/>
+                        <outlet property="forwardButton" destination="3i0-oi-at1" id="R5A-nw-TQv"/>
+                        <outlet property="progressView" destination="BWn-bP-gKv" id="ZMe-al-RkD"/>
+                        <outlet property="progressViewWidth" destination="NGj-B6-Dla" id="QTo-WR-bOW"/>
+                        <outlet property="refreshButton" destination="a5S-91-len" id="gsN-ta-YBi"/>
+                        <outlet property="searchDisplayController" destination="Tog-Lw-Xqt" id="gHe-Sy-cln"/>
+                        <outlet property="urlTextField" destination="wiK-YQ-LyI" id="Wmw-gB-0uw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Tog-Lw-Xqt">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="Pwq-Gi-PL3"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="9HX-2W-onf"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="b2v-df-jPq"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="MCh-Yz-WaR"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2440" y="225"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CFt-zJ-9e0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" toolbarHidden="NO" id="avP-Ep-DnA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E3H-Ze-XEt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Mxs-QW-2O0">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oA8-jO-4FN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uf4-tI-b8y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1628" y="225"/>
+        </scene>
+    </scenes>
+</document>
